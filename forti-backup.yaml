@@ -3,10 +3,10 @@
   collections:
     - fortinet.fortios
   vars:
-    vdom: "root"
+    vdom: "mgt"
     ansible_httpapi_use_ssl: yes
     ansible_httpapi_validate_certs: no
-    ansible_httpapi_port: 443
+    ansible_httpapi_port: 56443
   tasks:
   - name: backup a_specific_vdom settings
     fortios_system_config_backup_restore:
@@ -23,9 +23,6 @@
      backup: "yes"
      scope: "global"
      filename: "/tmp/backup_global"
-
-
-
 
 ---
 - hosts: fortigate
