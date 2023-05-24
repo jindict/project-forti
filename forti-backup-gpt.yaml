@@ -21,11 +21,11 @@
     - name: Save configuration to a local file
       copy:
         content: "{{ config_data }}"
-        dest: "/path/to/backup/{{ inventory_hostname }}-config.txt"
+        dest: "/tmp/save-config/FG100-config.txt"
 
     - name: Ensure configuration backup file is secure
       ansible.builtin.file:
-        path: "/path/to/backup/{{ inventory_hostname }}-config.txt"
+        path: "/tmp/save-config/FG100-config.txt"
         mode: '0600'
 ...
 
