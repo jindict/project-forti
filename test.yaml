@@ -7,7 +7,7 @@
         method: POST
         body_format: json
         body:
-          access_token: "qj63396cb86dss9mm84484qyGGy1bN"
+          access_token: "jr68h84c898myzjbggqs84x8Q5ffcQ"
           scope: "global"
           vdom: "Global"
         validate_certs: no
