@@ -23,4 +23,3 @@
      backup: "yes"
      scope: "global"
      filename: "/tmp/backup_global"
-

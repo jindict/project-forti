@@ -1,4 +1,3 @@
----
 - name: Backup Fortigate configuration
   hosts: fortigate_hosts
   gather_facts: no
