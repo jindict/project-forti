@@ -3,7 +3,7 @@
   tasks:
     - name: Backup configuration
       uri:
-        url: "https://172.16.22.253:56443/api/v2/monitor/system/config/backup:56443"
+        url: "https://172.16.22.253:56443/api/v2/monitor/system/config/backup"
         method: POST
         body_format: json
         body:
