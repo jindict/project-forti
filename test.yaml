@@ -3,7 +3,7 @@
   tasks:
     - name: Backup configuration
       uri:
-        url: "https://172.16.22.253/api/v2/cmdb/system/config/backup"
+        url: "https://<fortigate_ip>/api/v2/monitor/system/config/backup"
         method: POST
         body_format: json
         body:
