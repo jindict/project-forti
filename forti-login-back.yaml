@@ -1,0 +1,24 @@
+--
+- name: Login to FortiGate
+  hosts: localhost
+  gather_facts: no
+  vars:
+    host: "fortigate_ip"
+    username: "ansible-ro"
+    password: "ansible-ro"
+    vdom: "root"
+  tasks:
+    - name: Define FortiGate Login
+      fortiosapi:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        vdom: "{{ vdom }}"
+        path: 'system'
+        name: 'status'
+        api: 'get'
+      register: fortinet_login_status
+
+    - name: Show FortiGate Login Status
+      debug:
+        var: fortinet_login_status

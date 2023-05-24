@@ -6,7 +6,7 @@
     vdom: "mgt"
     ansible_httpapi_use_ssl: yes
     ansible_httpapi_validate_certs: no
-    ansible_httpapi_port: 56443
+    ansible_httpapi_port: 56
   tasks:
   - name: backup a_specific_vdom settings
     fortios_system_config_backup_restore:
@@ -36,3 +36,5 @@
         backup: yes
         backup_path: "/path/to/backup/directory/"
         backup_filename: "{{ inventory_hostname }}.conf"
+
+#end
