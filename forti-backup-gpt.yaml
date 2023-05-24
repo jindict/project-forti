@@ -13,7 +13,7 @@
 
   tasks:
     - name: Get configuration
-      fortinet.fortios.fortios_system_config:
+      fortinet.fortios.fortios system_config:
         state: "gathered"
         provider: "{{ fortios_provider }}"
       register: config_data
