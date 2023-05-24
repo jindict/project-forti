@@ -3,10 +3,14 @@
   collections:
     - fortinet.fortios
   tasks:
-    - name: Backup current config
-      fortios_system_config_backup:
+    - name: Get the current system config
+      fortinet.fortios.fortios_system_config:
         access_token: "{{ ansible_password }}"
-        vdom: "root"
-        destination: "/tmp/"
-        filename: "backup.conf"
-        state: "present"
+        state: "gathered"
+      register: config_data
+
+    - name: Backup config to a file
+      copy:
+        content: "{{ config_data }}"
+        dest: "/path/to/backup.conf"
+
