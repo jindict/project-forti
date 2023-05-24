@@ -1,0 +1,12 @@
+- hosts: fortigates
+  gather_facts: no
+  collections:
+    - fortinet.fortios
+  tasks:
+    - name: Backup current config
+      fortios_system_config_backup:
+        access_token: "{{ ansible_password }}"
+        vdom: "root"
+        destination: "/tmp/"
+        filename: "backup.conf"
+        state: "present"
