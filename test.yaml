@@ -3,13 +3,13 @@
   tasks:
     - name: Backup configuration
       uri:
-        url: "https://172.16.22.253/api/v2/monitor/system/config/backup"
+        url: "https://172.16.22.253:56443/api/v2/monitor/system/config/backup:56443"
         method: POST
         body_format: json
         body:
           access_token: "5tpbQ3kQdmbGznN7jkk6Gc6t66zj8H"
           scope: "global"
-          vdom: "<root>"
+          vdom: "<Global>"
         validate_certs: no
         headers:
           Content-Type: "application/json"
