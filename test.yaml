@@ -1,16 +1,21 @@
-- hosts: fortigates
-  gather_facts: no
-  collections:
-    - fortinet.fortios
+- name: Backup config
+  hosts: localhost
   tasks:
-    - name: Get the current system config
-      fortinet.fortios.fortios_system_config:
-        access_token: "{{ ansible_password }}"
-        state: "gathered"
-      register: config_data
+    - name: Backup configuration
+      uri:
+        url: "https://172.16.22.253/api/v2/monitor/system/config/backup"
+        method: POST
+        body_format: json
+        body:
+          access_token: "zwkgNkzbm9gjqh0tkQhH4tsk10kd5y"
+          scope: "global"
+          vdom: "<root>"
+        validate_certs: no
+        headers:
+          Content-Type: "application/json"
+      register: response
 
-    - name: Backup config to a file
+    - name: Save configuration to file
       copy:
-        content: "{{ config_data }}"
+        content: "{{ response.content }}"
         dest: "/path/to/backup.conf"
-
