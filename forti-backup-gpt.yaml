@@ -1,0 +1,32 @@
+---
+- name: Backup Fortigate configuration
+  hosts: fortigate_hosts
+  gather_facts: no
+  vars:
+    ansible_httpapi_use_ssl: yes
+    ansible_httpapi_validate_certs: no
+    ansible_httpapi_port: 56443
+    fortios_provider:
+      host: "172.16.22.253"
+      username: "ansible-ro"
+      password: "ansible-ro"
+
+  tasks:
+    - name: Get configuration
+      fortinet.fortios.fortios_system_config:
+        state: "gathered"
+        provider: "{{ fortios_provider }}"
+      register: config_data
+
+    - name: Save configuration to a local file
+      copy:
+        content: "{{ config_data }}"
+        dest: "/path/to/backup/{{ inventory_hostname }}-config.txt"
+
+    - name: Ensure configuration backup file is secure
+      ansible.builtin.file:
+        path: "/path/to/backup/{{ inventory_hostname }}-config.txt"
+        mode: '0600'
+...
+
+
