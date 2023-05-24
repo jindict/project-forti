@@ -9,7 +9,7 @@
         body:
           access_token: "5tpbQ3kQdmbGznN7jkk6Gc6t66zj8H"
           scope: "global"
-          vdom: "<Global>"
+          vdom: "<root>"
         validate_certs: no
         headers:
           Content-Type: "application/json"
